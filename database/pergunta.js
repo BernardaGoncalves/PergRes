@@ -1,20 +1,21 @@
-//pra definir o modulo primeiro tem que se importar o sequelizer e depois a conexao
-const Sequelize = require('sequelize');
-const conection=  require('./database');
+//pra definir o modulo primeiro tem que se importar o sequelize e depois a conexão
+import { STRING, TEXT } from 'sequelize';
+import connection from './database.js';
 
-//model  é uma estrutura de dados que representa a tabela
-const Pergunta = conection.define('pergunta', {
+//model é uma estrutura de dados que representa a tabela
+const Pergunta = connection.define('pergunta', {
     titulo: {
-        type: Sequelize.STRING,
+        type: STRING,
         allowNull: false
     },
     descricao: {
-        type: Sequelize.TEXT,
+        type: TEXT,
         allowNull: false
     }
-
 });
 
-Pergunta.sync({force:false}).then(() => {});
+Pergunta.sync({ force: false }).then(() => { 
+    console.log('\nTabela \'pergunta\' sincronizada.\n');
+});
 
-module.exports = Pergunta;
+export default Pergunta;

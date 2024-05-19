@@ -1,25 +1,26 @@
 <%- include ('partials/header.ejs') %>
-<body>
-    <%- include ('partials/navbar.ejs') %>
 
-    <div class="container">
+    <body>
+        <%- include ('partials/navbar.ejs') %>
 
-        <div class="card" id="form-perguntas">
-            <div class="card-header">
-                <h3>Realizar Pergunta</h3>
+            <div class="container">
+
+                <div class="card" id="form-perguntas">
+                    <div class="card-header">
+                        <h3>Realizar Pergunta</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/receberPergunta">
+                            <label for="titulo">Título </label>
+                            <input name="titulo" type="text" placeholder="Pergunta" class="form-control" required>
+                            <label for="descricao">Descreva a sua pergunta</label>
+                            <textarea name="descricao" class="form-control" required></textarea><br>
+                            <button class="btn btn-primary">Perguntar</button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
-            <div class="card-body">
-                <form method="post" action="/receberPergunta">
-                    <label for="titulo">Título </label>
-                    <input name="titulo" type="text" placeholder="Pergunta" class="form-control" required>
-                    <label for="descricao">Descreva a sua pergunta</label>
-                    <textarea name="descricao" class="form-control" required></textarea><br>
-                    <button class="btn btn-primary">Perguntar</button>
-                </form>
-            </div>
-        </div>
-        
-    </div>
 
-</body>
-<%- include ('partials/footer.ejs') %>
+    </body>
+    <%- include ('partials/footer.ejs') %>
