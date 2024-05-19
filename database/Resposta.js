@@ -12,6 +12,9 @@ const Resposta = connection.define("resposta", {
     }
 });
 
-Resposta.sync({ force: false }).then(() => { });
+Resposta.sync({ force: false }).then(() => { 
+    console.log('\nTabela \'resposta\' sincronizada.\n');
+});
+
 
 export default Resposta;
