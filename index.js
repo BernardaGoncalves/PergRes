@@ -2,7 +2,7 @@ import express from "express";
 
 //importacao da conexao
 import connection from './database/database.js';
-import Pergunta from "./database/pergunta.js";
+import Pergunta from './database/pergunta.js';
 import Resposta from './database/resposta.js';
 
 //Responsável por traduzir os dados enviados no formulario em uma estrutura js que podemos utilizar no back-end
