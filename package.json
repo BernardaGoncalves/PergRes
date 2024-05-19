@@ -1,10 +1,12 @@
 {
-  "name": "perg_res",
+  "name": "qa-site",
   "version": "1.0.0",
-  "description": "plataforma de perguntas e respostas",
+  "description": "Plataforma de Perguntas e Respostas",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "author": "Bernarda Gonçalves",
   "license": "ISC",
@@ -14,5 +16,8 @@
     "express": "^4.18.2",
     "mysql2": "^3.9.2",
     "sequelize": "^6.37.1"
+  },
+  "devDependencies": {
+    "dotenv": "^16.4.5"
   }
 }

@@ -1,10 +1,13 @@
-//cirar a conexao com o bd usado sequelize
-const Sequelize = require("sequelize");
+//criar a conexao com o bd usado sequelize
+import Sequelize from "sequelize";
+import 'dotenv/config'
 
-const conection = new Sequelize('pergRES', 'root', 'Doramaslove#098',{
-    host: 'localhost',
+let { HOST, USER, PASSWORD, DATABASE, PORT } = process.env
+
+const connection = new Sequelize(DATABASE, USER, PASSWORD, {
+    host: HOST,
     dialect: 'mysql'
 });
 
 //exportando a conexao criada acima 
-module.exports = conection;
+export default connection;

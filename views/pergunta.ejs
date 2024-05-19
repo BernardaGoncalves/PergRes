@@ -1,34 +1,41 @@
 <%- include ('partials/header.ejs') %>
 
-<body>
+    <body>
 
-    <%- include ('partials/navbar.ejs') %>
-    
-    <div class="container">
-        
-    <h1>Pagina da Pergunta</h1>
-        <hr>
-        <h2><%= pergunta.titulo %></h2>
-        <p><%= pergunta.descricao %></p>
+        <%- include ('partials/navbar.ejs') %>
 
-        <form method="POST" action="/responder">
-            <label for="corpo">Resposta</label>
-            <textarea class="form-control" name="corpo" placeholder="Digite sua resposta" required></textarea><br>
-            <input type="hidden" name="pergunta" value="<%= pergunta.id %>" >
-            <button type="submit" class="btn btn-primary">Responder</button>
-        </form>
-        <hr>
-        <h1>Respostas</h1>
-        <hr>
-        <% resposta.forEach(resposta => {%>
-            <br>
-            <div class="card">
-                <div class="card-body">
-                    <p><%= resposta.corpo %><br></p>
-                </div>
+            <div class="container">
+
+                <h1>Pagina da Pergunta</h1>
+                <hr>
+                <h2>
+                    <%= pergunta.titulo %>
+                </h2>
+                <p>
+                    <%= pergunta.descricao %>
+                </p>
+
+                <form method="POST" action="/responder">
+                    <label for="corpo">Resposta</label>
+                    <textarea class="form-control" name="corpo" placeholder="Digite sua resposta"
+                        required></textarea><br>
+                    <input type="hidden" name="pergunta" value="<%= pergunta.id %>">
+                    <button type="submit" class="btn btn-primary">Responder</button>
+                </form>
+                <hr>
+                <h1>Respostas</h1>
+                <hr>
+                <% resposta.forEach(resposta=> {%>
+                    <br>
+                    <div class="card">
+                        <div class="card-body">
+                            <p>
+                                <%= resposta.corpo %><br>
+                            </p>
+                        </div>
+                    </div>
+                    <% }) %>
             </div>
-        <% }) %>
-    </div>
 
-</body>
-<%- include ('partials/footer.ejs') %>
+    </body>
+    <%- include ('partials/footer.ejs') %>

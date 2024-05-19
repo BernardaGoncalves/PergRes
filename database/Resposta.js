@@ -1,18 +1,18 @@
-const Sequelize = require('sequelize');
-const conection=  require('./database');
-const Pergunta = require('./pergunta');
+import { TEXT, INTEGER } from 'sequelize';
+import connection from './database.js';
+import Pergunta from './pergunta.js';
 
-const Resposta= conection.define( "resposta",{
+const Resposta = connection.define("resposta", {
     corpo: {
-        type: Sequelize.TEXT,
+        type: TEXT,
         allowNull: false
     },
     perguntaId: {
-        type: Sequelize.INTEGER,
+        type: INTEGER,
         allowNull: false
     }
 });
 
-Resposta.sync({force: false});
+Resposta.sync({ force: false });
 
-module.exports= Resposta;
+export default Resposta;
