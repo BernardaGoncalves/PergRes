@@ -1,23 +1,23 @@
 import express from "express";
 
+//Responsável por traduzir os dados enviados no formulario em uma estrutura js que podemos utilizar no back-end
+import bodyParser from 'body-parser';
+import { where } from "sequelize";
+
 //importacao da conexao
 import connection from './database/database.js';
 import Pergunta from './database/pergunta.js';
 import Resposta from './database/resposta.js';
-
-//Responsável por traduzir os dados enviados no formulario em uma estrutura js que podemos utilizar no back-end
-import bodyParser from 'body-parser';
-import { where } from "sequelize";
 
 const app = express();
 
 connection
     .authenticate()
     .then(() => {
-        console.log("conexão feita com sucesso")
+        console.log("\nConexão feita com sucesso!\n")
     })
-    .catch(() => {
-        console.log(msgErro);
+    .catch((error) => {
+        console.log(error);
     })
 
 
@@ -25,14 +25,13 @@ connection
 app.set('view engine', 'ejs');
 
 //Codigo para aceitar Estilos estaticos no express
-app.use(express.static('public'));
+app.use(express.static('./public'));
 
 //Configuração do bodyParser que Permite que a pessoa envie os dados do formulário
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-
     //O codigo abaixo equivale ao SELECT *FROM ou todos do banco de dados
     Pergunta.findAll({ raw: true, order: [['id', 'DESC']] }).then(pergunta => {
         //o render ou redirecionar desenha alguma coisa na tela quando o usuario acessa a pagina 
@@ -41,7 +40,6 @@ app.get("/", (req, res) => {
             pergunta: pergunta
         });
     })
-
 });
 
 app.get("/perguntar", (req, res) => {
@@ -100,5 +98,5 @@ app.listen({
     host: '0.0.0.0',
     port: process.env.PORT ?? 3000,
 }, () => {
-    console.log("Server running");
+    console.log("\nServer running!\n");
 })

@@ -12,6 +12,6 @@ const Resposta = connection.define("resposta", {
     }
 });
 
-Resposta.sync({ force: false });
+Resposta.sync({ force: false }).then(() => { });
 
 export default Resposta;

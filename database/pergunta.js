@@ -12,7 +12,6 @@ const Pergunta = connection.define('pergunta', {
         type: TEXT,
         allowNull: false
     }
-
 });
 
 Pergunta.sync({ force: false }).then(() => { });

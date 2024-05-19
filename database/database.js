@@ -2,7 +2,7 @@
 import Sequelize from "sequelize";
 import 'dotenv/config'
 
-let { HOST, USER, PASSWORD, DATABASE, PORT } = process.env
+let { HOST, USER, PASSWORD, DATABASE, DBPORT } = process.env
 
 const connection = new Sequelize(DATABASE, USER, PASSWORD, {
     host: HOST,
