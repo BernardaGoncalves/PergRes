@@ -35,7 +35,6 @@ app.get("/", (req, res) =>{
     Pergunta.findAll({ raw: true, order:[['id', 'DESC']]}).then(pergunta => {
      //o render ou redirecionar desenha alguma coisa na tela quando o usuario acessa a pagina 
    // o render também vai directo na pasta view, não precisa especificar o caminho view
-
     res.render("index", {
         pergunta:pergunta
     });
@@ -54,7 +53,6 @@ app.post("/receberPergunta", (req, res) =>{
     //Pegar o nome ou informacoes dos formulario do html
     var titulo = req.body.titulo;
     var descricao = req.body.descricao;
-
     //O codigo abaixo equivale ao INSERT INTO *** do banco de dados
     Pergunta.create({
         titulo: titulo,
